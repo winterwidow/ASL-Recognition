@@ -17,11 +17,11 @@ Support Vector Machines (SVM) are powerful supervised learning algorithms used f
 - Each SVM model was trained with a portion of this dataset while the remainder was used for testing.
 
 ### Results Summary
-| Kernel Type    | Accuracy (%) | Training Time (s) | Testing Time (s) |
-|----------------|--------------|--------------------|------------------|
-| Linear Kernel  | 85.0         | 30                 | 10               |
-| Polynomial Kernel (d=2) | 92.5 | 45                 | 15               |
-| Polynomial Kernel (d=3) | 90.0 | 55                 | 20               |
+| Kernel Type    | Accuracy (%) 
+|----------------|--------------
+| Linear Kernel  | 85.0         
+| Polynomial Kernel (d=2) | 92.5 
+| Polynomial Kernel (d=3) | 90.0 
 
 ### Analysis
 From the results, it is observed that the polynomial kernel outperforms the linear kernel in terms of accuracy, especially for degree two. However, this comes at the cost of increased training and testing times, indicating a trade-off between complexity and performance.
@@ -80,7 +80,7 @@ When using a **linear kernel**, we can visualize the decision boundary by reduci
    - The decision boundary is a straight line that cannot adapt to the natural clustering of hand gestures
    - Cannot capture the curved, non-linear separation needed for complex gestures
 
-#### Example Code (from train.py - commented section):
+#### Code from train.py - commented section:
 
 ```python
 # 2D PCA Projection for Linear SVM
@@ -284,23 +284,6 @@ for label in np.unique(y):
 3. **Decision Surface**: The polynomial boundary wraps around clusters naturally
 4. **Overlap Regions**: Minimal overlap between similar gestures in 3D
 
-### Practical Impact on ASL Recognition
-
-#### Case Study: Distinguishing Similar Gestures
-
-| Gesture Pair | 2D Linear Accuracy | 3D Polynomial Accuracy | Improvement |
-|--------------|-------------------|----------------------|-------------|
-| A vs S | 72% | 94% | +22% |
-| M vs N | 65% | 89% | +24% |
-| U vs V | 81% | 96% | +15% |
-| K vs P | 58% | 87% | +29% |
-
-**Why the Improvement?**
-
-For "M" vs "N" (both have 3 bent fingers):
-- **2D**: Both gestures project to nearly the same region → high confusion
-- **3D**: The subtle difference in thumb position creates separation along PC3 → clear distinction
-
 ### Conclusion on Hyperplane Visualization
 
 The superiority of polynomial SVM for ASL recognition becomes clear when visualizing decision boundaries:
@@ -323,10 +306,6 @@ The superiority of polynomial SVM for ASL recognition becomes clear when visuali
 1. **Linear SVM Decision Boundary**: Typically results in a straight line or plane that separates classes. In the context of ASL, it may inadequately separate signs that are close together in feature space.
 
 2. **Polynomial SVM Decision Boundary**: Often illustrated as a curved line, allowing for nuanced separation between different ASL signs. Visualization can be shown using contour plots that highlight the regions classified by the SVM model.
-
-### Sample Visualization Output
-- Include screenshots or plots of decision boundaries for a better understanding of the differences between the kernels.
-- Graphical representations of accuracy over various degrees of polynomial kernels.
 
 ## Conclusion
 In conclusion, while the linear kernel is effective for simpler tasks, the polynomial kernel proves advantageous in modeling more complex datasets, such as those found in ASL recognition. The 3D hyperplane visualization clearly demonstrates why polynomial kernels achieve 15-20% higher accuracy: the additional dimension and curved decision surfaces better capture the spatial relationships between hand landmarks, which are fundamentally 3D in nature. However, the decision to use polynomial kernels should consider the computational cost, especially in real-time applications. Future work may explore further optimization techniques to balance performance and efficiency.
