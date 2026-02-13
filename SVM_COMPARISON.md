@@ -17,11 +17,11 @@ Support Vector Machines (SVM) are powerful supervised learning algorithms used f
 - Each SVM model was trained with a portion of this dataset while the remainder was used for testing.
 
 ### Results Summary
-| Kernel Type    | Accuracy (%) | Training Time (s) | Testing Time (s) |
-|----------------|--------------|--------------------|------------------|
-| Linear Kernel  | 85.0         | 30                 | 10               |
-| Polynomial Kernel (d=2) | 92.5 | 45                 | 15               |
-| Polynomial Kernel (d=3) | 90.0 | 55                 | 20               |
+| Kernel Type    | Accuracy (%) 
+|----------------|--------------
+| Linear Kernel  | 85.0         
+| Polynomial Kernel (d=2) | 92.5 
+| Polynomial Kernel (d=3) | 90.0 
 
 ### Analysis
 From the results, it is observed that the polynomial kernel outperforms the linear kernel in terms of accuracy, especially for degree two. However, this comes at the cost of increased training and testing times, indicating a trade-off between complexity and performance.
@@ -36,10 +36,6 @@ The polynomial kernel can model non-linear relationships by projecting the input
 1. **Linear SVM Decision Boundary**: Typically results in a straight line or plane that separates classes. In the context of ASL, it may inadequately separate signs that are close together in feature space.
 
 2. **Polynomial SVM Decision Boundary**: Often illustrated as a curved line, allowing for nuanced separation between different ASL signs. Visualization can be shown using contour plots that highlight the regions classified by the SVM model.
-
-### Sample Visualization Output
-- Include screenshots or plots of decision boundaries for a better understanding of the differences between the kernels.
-- Graphical representations of accuracy over various degrees of polynomial kernels.
 
 ## Conclusion
 In conclusion, while the linear kernel is effective for simpler tasks, the polynomial kernel proves advantageous in modeling more complex datasets, such as those found in ASL recognition. However, the decision to use polynomial kernels should consider the computational cost, especially in real-time applications. Future work may explore further optimization techniques to balance performance and efficiency.
